@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TradeCircle — Secure Peer-to-Peer Trading</title>
+    <meta name="description" content="TradeCircle is a secure peer-to-peer trading platform with escrow protections, fraud detection, and reputation scoring.">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#0b5cff">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+        <nav aria-label="Main navigation">
+            <div class="container nav-inner">
+                <h1 class="brand">TradeCircle</h1>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a role="menuitem" href="login.html">Login</a></li>
+                    <li role="none"><a role="menuitem" href="register.html" class="btn primary">Get Started</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero" role="region" aria-labelledby="hero-title">
+            <div class="container">
+                <h2 id="hero-title">Secure Peer-to-Peer Trading Platform</h2>
+                <p class="lead">Trade safely with built-in escrow protections, fraud monitoring, and community reputation scoring.</p>
+                <div class="hero-actions">
+                    <a href="register.html" class="btn primary">Create account</a>
+                    <a href="login.html" class="btn outline">Sign in</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+            <div class="container">
+                <h3 id="features-title">Why choose TradeCircle</h3>
+                <ul class="feature-list">
+                    <li><strong>Safe trades:</strong> Escrow and fraud monitoring.</li>
+                    <li><strong>Trusted community:</strong> Reputation and dispute resolution.</li>
+                    <li><strong>Easy to use:</strong> Fast listings and secure messaging.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <p>&copy; <span id="year"></span> TradeCircle — All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

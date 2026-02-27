@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - TradeCircle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <a href="landing-page.html" class="logo">TradeCircle</a>
+</header>
+
+<main>
+    <section class="form-container" aria-labelledby="login-heading">
+        <h2 id="login-heading">Login</h2>
+
+        <form id="login-form" action="#" method="post">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Password" required minlength="8">
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Login</button>
+                <a href="register.html" class="link">Create account</a>
+            </div>
+
+            <p id="login-error" role="alert" aria-live="assertive" class="error" hidden></p>
+        </form>
+    </section>
+</main>
+
+<script src="javascript.js"></script>
+</body>
+</html>

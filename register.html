@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - TradeCircle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <a href="landing-page.html" class="logo">TradeCircle</a>
+</header>
+
+<main>
+    <section class="form-container" aria-labelledby="register-heading">
+        <h2 id="register-heading">Create Account</h2>
+
+        <form id="register-form" action="#" method="post" novalidate>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Doe" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+            <label for="password">Password <small aria-hidden="true">(min 8 characters)</small></label>
+            <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" required minlength="8" aria-describedby="pwd-help">
+
+            <label for="confirm-password">Confirm password</label>
+            <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Repeat password" required minlength="8">
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Register</button>
+                <a href="login.html" class="link">Already have an account?</a>
+            </div>
+
+            <p id="pwd-help" class="hint">Use at least 8 characters. Avoid common words.</p>
+            <p id="register-error" role="alert" aria-live="assertive" class="error" hidden></p>
+        </form>
+    </section>
+</main>
+
+<script src="javascript.js"></script>
+</body>
+</html>

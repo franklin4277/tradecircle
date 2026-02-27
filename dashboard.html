@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - TradeCircle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <nav aria-label="Main navigation" class="site-nav">
+        <a href="landing-page.html" class="logo">TradeCircle</a>
+        <div class="nav-actions">
+            <span id="username" aria-live="polite" class="username" hidden>Signed in as <strong>User</strong></span>
+            <button type="button" onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+</header>
+
+<main class="container" role="main">
+    <section aria-labelledby="create-listing-heading" class="panel">
+        <h2 id="create-listing-heading">Create Listing</h2>
+
+        <form id="create-listing-form" aria-describedby="create-help" novalidate>
+            <label for="title">Listing title</label>
+            <input id="title" name="title" type="text" placeholder="e.g. Vintage camera" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" placeholder="Describe your item" required></textarea>
+
+            <label for="price">Price (USD)</label>
+            <input id="price" name="price" type="number" min="0" step="0.01" placeholder="0.00" required>
+
+            <label for="image">Photo (optional)</label>
+            <input id="image" name="image" type="file" accept="image/*">
+
+            <div class="form-actions">
+                <button id="submit-btn" type="submit" class="btn">Submit Listing</button>
+                <button id="cancel-edit" type="button" class="btn outline" hidden>Cancel Edit</button>
+            </div>
+
+            <p id="create-help" class="hint">Provide a clear title, description and a fair price.</p>
+            <p id="create-feedback" role="status" aria-live="polite" class="feedback" hidden></p>
+        </form>
+    </section>
+
+    <section aria-labelledby="search-heading" class="panel">
+        <h2 id="search-heading">Search Listings</h2>
+
+        <form id="search-form" role="search" class="search-form">
+            <label for="searchBox" class="visually-hidden">Search listings</label>
+            <input id="searchBox" name="q" type="search" placeholder="Search by title or description" aria-label="Search listings">
+            <button type="submit" class="btn">Search</button>
+        </form>
+
+        <div id="results" aria-live="polite" aria-atomic="false" class="results">
+            <!-- Listing items inserted here -->
+        </div>
+    </section>
+</main>
+
+<!-- Template for rendering listings -->
+<template id="listing-template">
+    <article class="listing" tabindex="0">
+        <img class="listing-img" alt="Listing image" src="" />
+        <div class="listing-body">
+            <h3 class="listing-title"></h3>
+            <p class="listing-desc"></p>
+            <p class="listing-price"></p>
+            <div class="listing-actions">
+                <button type="button" class="btn contact-btn">Contact Seller</button>
+                <button type="button" class="btn edit-btn" hidden>Edit</button>
+                <button type="button" class="btn outline delete-btn" hidden>Delete</button>
+            </div>
+        </div>
+    </article>
+</template>
+
+<script src="javascript.js"></script>
+</body>
+</html>

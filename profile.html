@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile - TradeCircle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-inner container">
+      <a class="logo" href="landing-page.html">TradeCircle</a>
+      <div class="nav-links"><a href="dashboard.html">Dashboard</a></div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2 id="profile-name">Profile</h2>
+      <p id="profile-email" class="hint"></p>
+    </section>
+
+    <section class="panel">
+      <h3>Your listings</h3>
+      <div id="my-listings" class="results"></div>
+    </section>
+  </main>
+
+  <script>
+    async function loadProfile(){
+      try{
+        const res = await fetch('/me', { headers: { 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('user')||'null')?.token || '') }});
+        if (res.ok){ const me = await res.json(); document.getElementById('profile-name').textContent = me.name || 'Profile'; document.getElementById('profile-email').textContent = me.email || ''; }
+      }catch(e){console.error(e)}
+      try{
+        const res = await fetch('/my-listings', { headers: { 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('user')||'null')?.token || '') }});
+        const data = res.ok? await res.json() : [];
+        const out = document.getElementById('my-listings'); out.innerHTML = '';
+        if (!data.length){ out.textContent = 'No listings yet.'; return; }
+        data.forEach(it => {
+          const el = document.createElement('div'); el.className='listing';
+          const img = document.createElement('img'); img.className='listing-img'; if (it.image){ img.src = it.image.startsWith('/')? it.image: '/'+it.image } else img.hidden=true;
+          const bd = document.createElement('div'); bd.className='listing-body';
+          const h = document.createElement('h3'); h.className='listing-title'; h.textContent = it.title;
+          const p = document.createElement('p'); p.className='listing-desc'; p.textContent = it.description;
+          bd.appendChild(h); bd.appendChild(p);
+          el.appendChild(img); el.appendChild(bd); out.appendChild(el);
+        });
+      }catch(e){console.error(e)}
+    }
+    document.addEventListener('DOMContentLoaded', loadProfile);
+  </script>
+</body>
+</html>

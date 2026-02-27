@@ -1,0 +1,9 @@
+node_modules/
+tradecircle.db
+public/uploads/
+.env
+.env.local
+npm-debug.log
+package-lock.json
+/.vscode/
+.DS_Store
